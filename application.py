@@ -68,7 +68,8 @@ def main():
   if mesure == "Pourcentage admis avec mention":
     metric = "pct_bg_mention"
 
-  df_select = df[(df["ville_etab"]==selection) & (df["lien_form_psup"].isnull()==False) & (df["select_form"].isin(choice))  & (df["contrat_etab"].isin(status))  ]
+  df_select = df[(df["ville_etab"]==selection) & (df["lien_form_psup"].isnull()==False)
+                 & (df["select_form"].isin(choice))  & (df["contrat_etab"].isin(status))  ].copy()
   df_select["warp"] = df_select["combined"].map(customwrap)
   df_select["rank_fig"]=df_select[metric].rank(method="first")
   df_select["rank_fig1"]=df_select[metric].rank(method="first", ascending=False)
