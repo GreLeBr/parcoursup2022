@@ -1,1 +1,3 @@
 *.identifier
+*.Dockerfile
+*.setup.sh
